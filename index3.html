@@ -1,0 +1,14 @@
+<script type="text/javascript">
+function importCanvas(sourceCanvas, targetSVG) {
+    // get base64 encoded png data url from Canvas
+    var img_dataurl = sourceCanvas.toDataURL("image/png");
+
+    var svg_img = document.createElementNS(
+        "http://www.w3.org/2000/svg", "image");
+
+    svg_img.setAttributeNS(
+        "http://www.w3.org/1999/xlink", "xlink:href", img_dataurl);
+
+    targetSVG.appendChild(svg_img);
+}
+</script>

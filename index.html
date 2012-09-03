@@ -1,0 +1,282 @@
+<head>
+<script type="text/javascript">
+
+var ctx;
+var canvas;
+var CR = 200;
+var CL = 100;
+var CT = 100;
+var CB = 400;
+
+
+function init(){
+  canvas = document.getElementById('letters');
+  canvas.width = 800;
+  canvas.height = 300;
+  if (canvas.getContext){
+    ctx = canvas.getContext('2d');
+  }
+  updateDisplay();
+}
+
+function updateDisplay(){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    CL = parseInt(CL);
+    CR = parseInt(CR);
+    CB = parseInt(CB);
+    CT = parseInt(CT);
+	drawString("HAOQWG");
+}
+
+function drawString(string){
+	var leading = 50;
+	var x = 0;
+    for (letter in string){
+		ctx.save();
+    ctx.scale(.3,.3);
+		x = drawLetter(string[letter], x, leading);
+		ctx.restore();
+    }	
+}
+
+
+function B(){
+	ctx.beginPath();
+	ctx.lineTo(0, 500);
+	ctx.lineTo(200, 500);
+	ctx.quadraticCurveTo(300, 500, 300, 400);
+	ctx.lineTo(300, 350);
+	ctx.quadraticCurveTo(300, 250, 200, 250);
+	ctx.quadraticCurveTo(300, 250, 300, 150);
+	ctx.lineTo(300, 100);
+	ctx.quadraticCurveTo(300, 0, 200, 0);
+	ctx.lineTo(0, 0);
+	ctx.fill();
+	
+	// upper counterform
+	ctx.globalCompositeOperation = "destination-out";
+	ctx.beginPath();
+	ctx.moveTo(CR-10,CT-10);
+	ctx.quadraticCurveTo(CL-10, CT-10, CL-10, CR-10);
+	ctx.lineTo(CL-10,CB-210);
+	ctx.lineTo(CR-10,CB-210);
+	ctx.fill();
+
+	// lower counterform
+	ctx.globalCompositeOperation = "destination-out";
+	ctx.beginPath();
+	ctx.moveTo(CR-10,CB);
+	ctx.quadraticCurveTo(CR-10, CB, CR-10, 10);
+	
+	ctx.fill();
+	
+}
+
+function G(){
+	ctx.beginPath();
+	ctx.moveTo(0, 100);
+	ctx.lineTo(0, 400);
+	ctx.quadraticCurveTo(0, 500, 100, 500);
+	ctx.lineTo(300, 500);
+	ctx.quadraticCurveTo(350, 500, 350, 400);
+	ctx.lineTo(350, 200);
+	ctx.lineTo(CR+50, 200);
+	ctx.lineTo(CR-50, 300);
+	ctx.lineTo(CR+50, 300);
+	ctx.quadraticCurveTo(CR+50, 400, CR-50, 400);
+	ctx.lineTo(CL, 400);
+	ctx.lineTo(CL, 200);
+	ctx.quadraticCurveTo(CL, 100, CL+100, 100);
+	ctx.lineTo(CR+50, 100);
+	ctx.lineTo(CR+50, 150);
+	ctx.lineTo(350, 150);
+	ctx.lineTo(350, 100);
+	ctx.quadraticCurveTo(350, 0, 250, 0);
+	ctx.lineTo(100, 0);
+	ctx.quadraticCurveTo(0, 0, 0, 100);
+	ctx.fill();
+}
+
+function T(){
+
+}
+
+function K(){
+
+}
+
+function W(){
+	
+	// main body
+	ctx.beginPath();
+	ctx.lineTo(0, 400);
+	ctx.lineTo(CL, 500);
+	ctx.lineTo(400, 500);
+  	ctx.quadraticCurveTo(500, 500, 500, 400);	
+  	ctx.lineTo(500, 100);
+	ctx.lineTo(CR+200, 0);
+  	ctx.lineTo(CR+200, CB-100);
+  	ctx.quadraticCurveTo(CR+200, CB, CL+200, CB);
+  	ctx.lineTo(CL+200, CT+50);
+  	ctx.lineTo(CR, CT+50);
+  	ctx.lineTo(CR, CB-100);
+  	ctx.quadraticCurveTo(CR, CB, CL, CB);
+  	ctx.lineTo(CL, 100);
+  	ctx.lineTo(0, 0);
+  	
+	ctx.fill();
+}
+
+function A(){
+	
+	// main body
+	ctx.beginPath();
+	ctx.moveTo(0,100);
+	ctx.lineTo(0,500);
+	ctx.lineTo(CL,400);
+	ctx.lineTo(CL,300);
+	ctx.lineTo(CL,350);
+	ctx.lineTo(CR,350);
+	ctx.lineTo(CR,500);
+	ctx.lineTo(300,500);
+	ctx.lineTo(300,100);
+  	ctx.quadraticCurveTo(300, 0, 200, 0);
+	ctx.lineTo(100,0);
+  	ctx.quadraticCurveTo(0, 0, 0, 100);
+	ctx.fill();
+	
+	// upper counterform
+	ctx.globalCompositeOperation = "destination-out";
+	ctx.beginPath();
+	ctx.moveTo(CR,CT);
+	ctx.quadraticCurveTo(CL, CT, CL, CR);
+	ctx.lineTo(CL,CB-150);
+	ctx.lineTo(CR,CB-150);
+	ctx.fill();
+}
+function O(){
+	
+	// main body
+	ctx.beginPath();
+	ctx.moveTo(0,100);
+	ctx.lineTo(0,400);
+	ctx.quadraticCurveTo(0, 500, 100, 500);
+	ctx.lineTo(200,500);
+	ctx.quadraticCurveTo(300, 500, 300,400);
+	ctx.lineTo(300,100);
+  	ctx.quadraticCurveTo(300, 0, 200, 0);
+	ctx.lineTo(100,0);
+  	ctx.quadraticCurveTo(0, 0, 0, 100);
+	ctx.fill();
+	
+	// counterform
+	ctx.globalCompositeOperation = "destination-out";
+	ctx.beginPath();
+	ctx.lineTo(CL,CB);
+	ctx.quadraticCurveTo(CR, CB, CR, CB-100);
+	ctx.lineTo(CR,CT);
+	ctx.quadraticCurveTo(CL, CT, CL, CT+100);
+	ctx.fill();	
+}
+
+function Q(){
+	
+	// main body
+	ctx.beginPath();
+	ctx.moveTo(0,100);
+	ctx.lineTo(0,400);
+	ctx.quadraticCurveTo(0, 500, 100, 500);
+	ctx.lineTo(200,500);
+	ctx.quadraticCurveTo(300, 500, 300,400);
+	ctx.lineTo(300,100);
+  	ctx.quadraticCurveTo(300, 0, 200, 0);
+	ctx.lineTo(100,0);
+  	ctx.quadraticCurveTo(0, 0, 0, 100);
+	ctx.fill();
+	
+	// tail
+	ctx.beginPath();
+	ctx.moveTo(100,510);
+	ctx.lineTo(200,610);
+	ctx.lineTo(400,610);
+	ctx.quadraticCurveTo(400, 520, 300, 510);
+	ctx.fill();
+	
+	// counterform
+	ctx.globalCompositeOperation = "destination-out";
+	ctx.beginPath();
+	ctx.moveTo(CL,100);
+	ctx.lineTo(CL,CB-100);
+	ctx.lineTo(CR, CB)
+/* 	ctx.quadraticCurveTo(CR, CB, CR, CB-100); */
+	ctx.lineTo(CR,CT);
+	ctx.quadraticCurveTo(CL, CT, CL, CT+100);
+	ctx.fill();	
+}
+
+function H(){
+	ctx.beginPath();
+	ctx.lineTo(0, 400);
+	ctx.lineTo(CL, 500);
+	ctx.lineTo(CL, CT+200);
+	ctx.lineTo(CR, CT+200);
+	ctx.lineTo(CR, 500);
+	ctx.lineTo(300, 500);
+	ctx.lineTo(300, 100);
+	ctx.lineTo(CR, 0);
+	ctx.lineTo(CR, CB-275);
+	ctx.quadraticCurveTo(CR, CB-175, CL, CB-175);
+	ctx.lineTo(CL, 0);
+	ctx.lineTo(0,0);
+	ctx.fill();
+}
+
+function drawLetter(letter, x, leading){
+/* 	console.log("drawing " + letter + " at " + x + " with " + leading + " leading"); */
+	ctx.translate(x, 0);
+	switch(letter){
+		case 'A': A(); x += 300; break;
+		case 'B': B(); x += 300; break;
+		case 'C': C(); x += 300; break;
+		case 'D': D(); x += 300; break;
+		case 'E': E(); x += 300; break;
+		case 'F': F(); x += 300; break;
+		case 'G': G(); x += 400; break;
+		case 'H': H(); x += 300; break;
+		case 'I': I(); x += 300; break;
+		case 'J': J(); x += 300; break;
+		case 'K': K(); x += 300; break;
+		case 'L': L(); x += 300; break;
+		case 'M': M(); x += 500; break;
+		case 'N': N(); x += 300; break;
+		case 'O': O(); x += 300; break;
+		case 'P': P(); x += 300; break;
+		case 'Q': Q(); x += 300; break;
+		case 'R': R(); x += 300; break;
+		case 'S': S(); x += 300; break;
+		case 'T': T(); x += 300; break;
+		case 'U': U(); x += 300; break;
+		case 'V': V(); x += 300; break;
+		case 'W': W(); x += 500; break;
+		case 'X': X(); x += 300; break;
+		case 'Y': Y(); x += 300; break;
+		case 'Z': Z(); x += 300; break;
+	}
+	x += leading;
+	return x;
+}
+
+
+</script>
+</head>
+<body onload="init()">
+	<p>This only works in Chrome and Opera</p>
+	<label>Counter top</label><input type="range" min="0" max="200" step="1" value="100" onchange="CT = this.value; updateDisplay()" /><br />
+	<label>Counter bottom</label><input type="range" min="300" max="500" step="1" value="400" onchange="CB = this.value; updateDisplay()" /><br />
+	<label>Counter left</label><input type="range" min="0" max="200" step="1" value="100" onchange="CL = this.value; updateDisplay()" /><br />
+	<label>Counter right</label><input type="range" min="100" max="300" step="1" value="200" onchange="CR = this.value; updateDisplay()" /><br />
+
+	<canvas id="letters" width="600" height="600">
+	You need HTML5
+	</canvas>
+</body>

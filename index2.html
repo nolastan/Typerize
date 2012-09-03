@@ -1,0 +1,86 @@
+<head>
+<script type="text/javascript">
+
+var ctx;
+var canvas;
+var CR = 200;
+var CL = 100;
+var CT = 100;
+var CB = 400;
+
+O();
+
+
+function init(){
+
+  updateDisplay();
+}
+
+function updateDisplay(){
+    CL = parseInt(CL);
+    CR = parseInt(CR);
+    CB = parseInt(CB);
+    CT = parseInt(CT);
+	document.getElementById("area").innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="area"><path d="M200,0c100.3,0,99.7,99.7,99.7,99.7s-0.2,201-0.2,301.7 S201,501.7,201,501.7s0,0-100.3,0S0.5,400.2,0.5,400.2s0-199,0-300S100.8,1.4,100.8,1.4S101,0.5,201.3,0.5z M100,401.2 c0,0,100,0,100-100c0-100,0-200,0-200s-99.5,0-100,100S'+CL+'.5,401.2,'+CL+',401.2z" /></svg>'
+}
+
+function drawString(string){
+	var leading = 50;
+	var x = 0;
+    for (letter in string){
+		x = drawLetter(string[letter], x, leading);
+    }	
+}
+
+
+function O(){
+	;
+	
+}
+
+
+function drawLetter(letter, x, leading){
+/* 	console.log("drawing " + letter + " at " + x + " with " + leading + " leading"); */
+	switch(letter){
+		case 'A': A(); x += 300; break;
+		case 'B': B(); x += 300; break;
+		case 'C': C(); x += 300; break;
+		case 'D': D(); x += 300; break;
+		case 'E': E(); x += 300; break;
+		case 'F': F(); x += 300; break;
+		case 'G': G(); x += 400; break;
+		case 'H': H(); x += 300; break;
+		case 'I': I(); x += 300; break;
+		case 'J': J(); x += 300; break;
+		case 'K': K(); x += 300; break;
+		case 'L': L(); x += 300; break;
+		case 'M': M(); x += 500; break;
+		case 'N': N(); x += 300; break;
+		case 'O': O(); x += 300; break;
+		case 'P': P(); x += 300; break;
+		case 'Q': Q(); x += 300; break;
+		case 'R': R(); x += 300; break;
+		case 'S': S(); x += 300; break;
+		case 'T': T(); x += 300; break;
+		case 'U': U(); x += 300; break;
+		case 'V': V(); x += 300; break;
+		case 'W': W(); x += 500; break;
+		case 'X': X(); x += 300; break;
+		case 'Y': Y(); x += 300; break;
+		case 'Z': Z(); x += 300; break;
+	}
+	x += leading;
+	return x;
+}
+
+
+</script>
+</head>
+<body onload="init()">
+	<p>This only works in Chrome and Opera</p>
+	<label>Counter top</label><input type="range" min="0" max="200" step="1" value="100" onchange="CT = this.value; updateDisplay()" /><br />
+	<label>Counter bottom</label><input type="range" min="300" max="500" step="1" value="400" onchange="CB = this.value; updateDisplay()" /><br />
+	<label>Counter left</label><input type="range" min="0" max="200" step="1" value="100" onchange="CL = this.value; updateDisplay()" /><br />
+	<label>Counter right</label><input type="range" min="100" max="300" step="1" value="200" onchange="CR = this.value; updateDisplay()" /><br />
+	<div id="area"></div>
+</body>
